@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block head %}
+    <meta charset="utf-8">
+    <title>{% block title%}{% endblock %} - Company XyZ</title>
+    {% endblock %}
+  </head>
+  <body>
+    <div class="" id="logo">
+      <img src="{{url_for('static', filename='logo.png')}}" alt="Company XYZ" height="100px" />
+    </div>
+    {% with messages  = get_flashed_messages() %}
+    {% if messages %}
+    <ul class='flashes'>
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    <div class="" id="content">
+      {%block content %} {%endblock %}
+    </div>
+
+    <footer>
+      {%block footer %}
+      &copy; Copyright 2016 by <a href="http://pleyto.ph">Company XyZ</a>
+      {%endblock %}
+    </footer>
+    </body>
+</html>
